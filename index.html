@@ -1,1 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Electro Luna | Tecnología, Hogar y Estilo</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Georgia,serif;
+    background:#050505;
+    color:#fff;
+}
+
+header{
+    background:#050505;
+    border-bottom:1px solid #9b6b16;
+}
+
+.top{
+    display:flex;
+    justify-content:space-around;
+    padding:12px;
+    color:#e4b64b;
+    font-size:14px;
+    border-bottom:1px solid #3d2b0d;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 5%;
+}
+
+.logo{
+    font-size:30px;
+    color:#dca52e;
+    font-style:italic;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    font-size:14px;
+}
+
+.menu a:hover{
+    color:#e5ae36;
+}
+
+.hero{
+    min-height:430px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 20px;
+    background:
+    radial-gradient(circle,#3d2908 0%,#0a0804 35%,#050505 75%);
+    border-bottom:1px solid #9b6b16;
+}
+
+.hero h1{
+    font-size:70px;
+    color:#e4ae35;
+    letter-spacing:3px;
+}
+
+.hero h2{
+    font-size:55px;
+    color:#fff;
+    font-style:italic;
+}
+
+.hero p{
+    margin:20px auto;
+    max-width:600px;
+    color:#d9c69a;
+    font-size:20px;
+}
+
+.boton{
+    display:inline-block;
+    padding:15px 30px;
+    margin:10px;
+    background:linear-gradient(135deg,#b57912,#f2c75c);
+    color:#050505;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:8px;
+}
+
+.boton:hover{
+    transform:scale(1.04);
+}
+
+.seccion{
+    padding:45px 5%;
+}
+
+.titulo{
+    text-align:center;
+    color:#e5b546;
+    font-size:30px;
+    margin-bottom:30px;
+}
+
+.categorias{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.categoria{
+    border:1px solid #9b6b16;
+    padding:25px 10px;
+    text-align:center;
+    border-radius:10px;
+    background:#0c0c0c;
+    color:#e5b546;
+    font-size:17px;
+}
+
+.productos{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.producto{
+    background:#0c0c0c;
+    border:1px solid #9b6b16;
+    border-radius:10px;
+    padding:18px;
+    text-align:center;
+}
+
+.producto .foto{
+    height:160px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
+    background:#111;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.producto h3{
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.precio{
+    color:#e8b83f;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.cuotas{
+    color:#d6c69f;
+    margin:7px 0 15px;
+    font-size:14px;
+}
+
+.comprar{
+    display:block;
+    background:#dca52e;
+    color:#000;
+    padding:10px;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.beneficios{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border:1px solid #9b6b16;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.beneficio{
+    text-align:center;
+    padding:25px 10px;
+    border-right:1px solid #5d4317;
+}
+
+.beneficio:last-child{
+    border-right:none;
+}
+
+.beneficio h3{
+    color:#e5b546;
+    margin-bottom:8px;
+}
+
+.opiniones{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.opinion{
+    border:1px solid #5d4317;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    color:#ddd;
+}
+
+.estrellas{
+    color:#e5b546;
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+footer{
+    border-top:1px solid #9b6b16;
+    padding:40px 5%;
+    background:#080808;
+    text-align:center;
+}
+
+footer .logo{
+    margin-bottom:15px;
+}
+
+footer p{
+    color:#bbb;
+    margin:8px;
+}
+
+.instagram{
+    color:#e5b546;
+    font-size:18px;
+}
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    background:#dca52e;
+    color:#000;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:bold;
+    box-shadow:0 0 20px #9b6b16;
+}
+
+@media(max-width:900px){
+
+    .top{
+        flex-direction:column;
+        gap:7px;
+        text-align:center;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:8px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero h2{
+        font-size:38px;
+    }
+
+    .categorias{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .productos{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .beneficios{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .beneficio{
+        border-bottom:1px solid #5d4317;
+    }
+
+    .opiniones{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .productos{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:350px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero h2{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="top">
+    <span>🚚 ENVÍOS A TODO EL PAÍS</span>
+    <span>💳 HASTA 6 CUOTAS SIN INTERÉS</span>
+    <span>🎧 ATENCIÓN PERSONALIZADA</span>
+</div>
+
+<nav>
+
+<div class="logo">🌙 Electro Luna</div>
+
+<div class="menu">
+<a href="#">INICIO</a>
+<a href="#productos">PRODUCTOS</a>
+<a href="#categorias">CATEGORÍAS</a>
+<a href="#ofertas">OFERTAS</a>
+<a href="#contacto">CONTACTO</a>
+</div>
+
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div>
+
+<h1>ELECTRO</h1>
+
+<h2>Luna</h2>
+
+<p>
+TECNOLOGÍA · HOGAR · ESTILO
+<br><br>
+Elegí calidad, elegí confianza,
+<br>
+<i>elegí Electro Luna.</i>
+</p>
+
+<a class="boton" href="#productos">🛒 VER PRODUCTOS</a>
+
+<a class="boton" href="https://wa.me/" target="_blank">
+💬 WHATSAPP
+</a>
+
+</div>
+
+</section>
+
+
+<section class="seccion" id="categorias">
+
+<h2 class="titulo">✦ CATEGORÍAS DESTACADAS ✦</h2>
+
+<div class="categorias">
+
+<div class="categoria">🏠<br>HOGAR</div>
+
+<div class="categoria">📱<br>TECNOLOGÍA</div>
+
+<div class="categoria">🧸<br>JUGUETES</div>
+
+<div class="categoria">🔧<br>HERRAMIENTAS</div>
+
+<div class="categoria">🍳<br>COCINA</div>
+
+<div class="categoria">🚲<br>MOVILIDAD</div>
+
+</div>
+
+</section>
+
+
+<section class="seccion" id="productos">
+
+<h2 class="titulo">✦ PRODUCTOS DESTACADOS ✦</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<div class="foto">🍟</div>
+
+<h3>Freidora de Aire Star Trak 6.5L</h3>
+
+<div class="precio">$119.990</div>
+
+<div class="cuotas">Hasta 6 cuotas sin interés</div>
+
+<a class="comprar" href="#">COMPRAR</a>
+
+</div>
+
+
+<div class="producto">
+
+<div class="foto">☕</div>
+
+<h3>Cafetera Espresso Suono 20 Bar</h3>
+
+<div class="precio">$139.990</div>
+
+<div class="cuotas">Hasta 6 cuotas sin interés</div>
+
+<a class="comprar" href="#">COMPRAR</a>
+
+</div>
+
+
+<div class="producto">
+
+<div class="foto">📺</div>
+
+<h3>Microondas Yelmo HM-9020 20L</h3>
+
+<div class="precio">$99.990</div>
+
+<div class="cuotas">Hasta 6 cuotas sin interés</div>
+
+<a class="comprar" href="#">COMPRAR</a>
+
+</div>
+
+
+<div class="producto">
+
+<div class="foto">🥤</div>
+
+<h3>Licuadora Yelmo Harry Potter 1.5L</h3>
+
+<div class="precio">$59.990</div>
+
+<div class="cuotas">Hasta 6 cuotas sin interés</div>
+
+<a class="comprar" href="#">COMPRAR</a>
+
+</div>
+
+
+<div class="producto">
+
+<div class="foto">🧹</div>
+
+<h3>Aspiradora Vertical</h3>
+
+<div class="precio">$49.990</div>
+
+<div class="cuotas">Hasta 6 cuotas sin interés</div>
+
+<a class="comprar" href="#">COMPRAR</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="seccion" id="ofertas">
+
+<h2 class="titulo">✦ ¿POR QUÉ ELEGIR ELECTRO LUNA? ✦</h2>
+
+<div class="beneficios">
+
+<div class="beneficio">
+
+<h3>🚚 ENVÍOS</h3>
+
+<p>A todo el país</p>
+
+</div>
+
+<div class="beneficio">
+
+<h3>💳 HASTA 6 CUOTAS</h3>
+
+<p>Sin interés</p>
+
+</div>
+
+<div class="beneficio">
+
+<h3>🏆 CALIDAD</h3>
+
+<p>Productos seleccionados</p>
+
+</div>
+
+<div class="beneficio">
+
+<h3>🎧 ATENCIÓN</h3>
+
+<p>Siempre para vos</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="seccion">
+
+<h2 class="titulo">✦ LO QUE DICEN NUESTROS CLIENTES ✦</h2>
+
+<div class="opiniones">
+
+<div class="opinion">
+
+<div class="estrellas">★★★★★</div>
+
+<p>“Excelente atención y productos de primera calidad.”</p>
+
+<br>
+
+<strong>Mariana G.</strong>
+
+</div>
+
+
+<div class="opinion">
+
+<div class="estrellas">★★★★★</div>
+
+<p>“Recibí mi pedido súper rápido. Muy recomendable.”</p>
+
+<br>
+
+<strong>Lucas M.</strong>
+
+</div>
+
+
+<div class="opinion">
+
+<div class="estrellas">★★★★★</div>
+
+<p>“Electro Luna es mi tienda de confianza.”</p>
+
+<br>
+
+<strong>Silvina R.</strong>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer id="contacto">
+
+<div class="logo">🌙 Electro Luna</div>
+
+<p>TECNOLOGÍA · HOGAR · ESTILO</p>
+
+<p>Elegí calidad, elegí confianza.</p>
+
+<br>
+
+<p class="instagram">📸 Instagram: @electroluna.ok</p>
+
+<p>📧 electroluna.ok@gmail.com</p>
+
+<p>📍 Buenos Aires, Argentina</p>
+
+<br>
+
+<p>© 2026 Electro Luna · Todos los derechos reservados</p>
+
+</footer>
+
+
+<a class="whatsapp" href="https://wa.me/" target="_blank">☏</a>
+
+
+</body>
+</html>
