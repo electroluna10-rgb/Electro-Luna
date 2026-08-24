@@ -4,332 +4,731 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Electro Luna | Tecnología, Hogar y Estilo</title>
+<title>Electro Luna | Tecnología · Hogar · Estilo</title>
+
+<meta name="description"
+content="Electro Luna - Tecnología, hogar, herramientas, juguetes y mucho más. Envíos a todo el país.">
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap');
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Georgia,serif;
     background:#050505;
-    color:#fff;
+    color:#f5f0df;
+    font-family:'Poppins',sans-serif;
 }
 
-header{
-    background:#050505;
-    border-bottom:1px solid #9b6b16;
-}
+/* =========================
+   BARRA SUPERIOR
+========================= */
 
-.top{
+.topbar{
+    background:#020202;
+    border-bottom:1px solid rgba(212,166,62,.35);
     display:flex;
     justify-content:space-around;
-    padding:12px;
-    color:#e4b64b;
-    font-size:14px;
-    border-bottom:1px solid #3d2b0d;
+    align-items:center;
+    padding:11px 20px;
+    color:#d8ad4c;
+    font-size:12px;
+    letter-spacing:.5px;
 }
 
+.topbar span{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
 nav{
+    height:82px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:18px 5%;
+    padding:0 4%;
+    background:#050505;
+    border-bottom:1px solid rgba(212,166,62,.25);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
-    font-size:30px;
-    color:#dca52e;
-    font-style:italic;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#e5b94f;
+}
+
+.logo-moon{
+    font-size:52px;
+    line-height:1;
+    text-shadow:
+        0 0 8px #d5a52f,
+        0 0 20px rgba(212,166,62,.6);
+}
+
+.logo-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-text strong{
+    font-family:'Cinzel',serif;
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+.logo-text em{
+    font-family:'Playfair Display',serif;
+    font-size:25px;
+    margin-top:-5px;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
 
 .menu a{
-    color:white;
+    color:#ddd3bd;
     text-decoration:none;
-    margin:0 12px;
-    font-size:14px;
+    font-size:13px;
+    transition:.3s;
 }
 
 .menu a:hover{
-    color:#e5ae36;
+    color:#e8b94d;
 }
 
+.icons{
+    display:flex;
+    gap:20px;
+    font-size:22px;
+    color:#e5b94f;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
-    min-height:430px;
+    min-height:500px;
+    position:relative;
+    overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:50px 20px;
+
     background:
-    radial-gradient(circle,#3d2908 0%,#0a0804 35%,#050505 75%);
-    border-bottom:1px solid #9b6b16;
+        radial-gradient(circle at 25% 50%,rgba(214,164,46,.16),transparent 28%),
+        radial-gradient(circle at 75% 50%,rgba(214,164,46,.12),transparent 30%),
+        #030303;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(circle,#d9a936 1px,transparent 1.5px)
+        10% 20%/150px 150px,
+        radial-gradient(circle,#fff2ae 1px,transparent 1.5px)
+        70% 40%/190px 190px;
+
+    opacity:.45;
+    animation:stars 10s linear infinite;
+}
+
+@keyframes stars{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+.decor{
+    position:absolute;
+    color:#dcae3e;
+    opacity:.85;
+    font-size:38px;
+    text-shadow:0 0 18px #d6a82e;
+}
+
+.decor.one{left:3%;top:18%;}
+.decor.two{left:10%;bottom:18%;}
+.decor.three{right:4%;top:18%;}
+.decor.four{right:10%;bottom:15%;}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:800px;
+    padding:40px 20px;
+}
+
+.moon{
+    font-size:120px;
+    line-height:.8;
+    color:#e4b43e;
+    text-shadow:
+        0 0 12px #ffd76b,
+        0 0 40px rgba(226,174,52,.65);
 }
 
 .hero h1{
-    font-size:70px;
-    color:#e4ae35;
-    letter-spacing:3px;
+    font-family:'Cinzel',serif;
+    font-size:62px;
+    letter-spacing:5px;
+
+    background:linear-gradient(
+        120deg,
+        #fff1a6,
+        #c9952e,
+        #ffe18a,
+        #a87318
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    text-shadow:0 5px 25px rgba(217,166,54,.3);
 }
 
 .hero h2{
-    font-size:55px;
-    color:#fff;
+    font-family:'Playfair Display',serif;
     font-style:italic;
+    font-size:66px;
+    color:#f5eee0;
+    margin-top:-15px;
+}
+
+.hero-sub{
+    color:#d8ad4c;
+    font-family:'Cinzel',serif;
+    letter-spacing:4px;
+    margin:15px 0;
 }
 
 .hero p{
-    margin:20px auto;
-    max-width:600px;
-    color:#d9c69a;
+    font-family:'Playfair Display',serif;
     font-size:20px;
+    color:#e8dfcb;
 }
 
-.boton{
-    display:inline-block;
-    padding:15px 30px;
-    margin:10px;
-    background:linear-gradient(135deg,#b57912,#f2c75c);
-    color:#050505;
-    text-decoration:none;
-    font-weight:bold;
+.hero p em{
+    color:#dcae3e;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.btn{
+    padding:14px 30px;
     border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
 }
 
-.boton:hover{
-    transform:scale(1.04);
+.btn-gold{
+    color:#080808;
+    background:linear-gradient(
+        135deg,
+        #fff0a3,
+        #c99628,
+        #f4d66e
+    );
+    box-shadow:0 0 25px rgba(215,166,53,.3);
 }
 
-.seccion{
-    padding:45px 5%;
+.btn-outline{
+    color:#e6bc55;
+    border:1px solid #bd8c29;
+    background:#070707;
 }
 
-.titulo{
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(218,168,53,.5);
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section{
+    padding:55px 4%;
+    max-width:1400px;
+    margin:auto;
+}
+
+.section-title{
     text-align:center;
-    color:#e5b546;
-    font-size:30px;
-    margin-bottom:30px;
+    font-family:'Cinzel',serif;
+    color:#e0b34b;
+    font-size:27px;
+    letter-spacing:3px;
+    margin-bottom:35px;
 }
 
-.categorias{
+.section-title::before,
+.section-title::after{
+    content:" ✦ ";
+    color:#f4d56d;
+}
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.categories{
     display:grid;
     grid-template-columns:repeat(6,1fr);
     gap:15px;
 }
 
-.categoria{
-    border:1px solid #9b6b16;
-    padding:25px 10px;
-    text-align:center;
-    border-radius:10px;
-    background:#0c0c0c;
-    color:#e5b546;
-    font-size:17px;
-}
-
-.productos{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:15px;
-}
-
-.producto{
-    background:#0c0c0c;
-    border:1px solid #9b6b16;
-    border-radius:10px;
-    padding:18px;
-    text-align:center;
-}
-
-.producto .foto{
-    height:160px;
+.category{
+    min-height:130px;
+    border:1px solid #75551b;
+    border-radius:12px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            rgba(197,147,38,.035)
+        );
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
-    font-size:65px;
-    background:#111;
+    transition:.35s;
+    cursor:pointer;
+}
+
+.category:hover{
+    transform:translateY(-7px);
+    border-color:#e1b64c;
+    box-shadow:
+        0 0 20px rgba(220,170,55,.2),
+        inset 0 0 20px rgba(220,170,55,.04);
+}
+
+.category-icon{
+    font-size:43px;
+    color:#d9aa3c;
+    margin-bottom:12px;
+}
+
+.category span{
+    font-family:'Cinzel',serif;
+    color:#e6d6b3;
+    font-size:13px;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+}
+
+.product{
+    position:relative;
+    overflow:hidden;
+    border:1px solid #775719;
+    border-radius:12px;
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #070707
+        );
+    padding:14px;
+    transition:.35s;
+}
+
+.product:hover{
+    transform:translateY(-7px);
+    border-color:#e0b54b;
+    box-shadow:
+        0 0 30px rgba(219,168,52,.18);
+}
+
+.product::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:#d8a82e;
+    filter:blur(70px);
+    opacity:.08;
+    top:-50px;
+    right:-50px;
+}
+
+.product img{
+    width:100%;
+    height:180px;
+    object-fit:contain;
+    background:#050505;
     border-radius:8px;
-    margin-bottom:15px;
 }
 
-.producto h3{
-    font-size:17px;
-    margin-bottom:10px;
-}
-
-.precio{
-    color:#e8b83f;
-    font-size:22px;
-    font-weight:bold;
-}
-
-.cuotas{
-    color:#d6c69f;
-    margin:7px 0 15px;
+.product h3{
+    font-family:'Cinzel',serif;
     font-size:14px;
+    color:#ead8b0;
+    margin:13px 0 7px;
+    min-height:40px;
 }
 
-.comprar{
-    display:block;
-    background:#dca52e;
-    color:#000;
-    padding:10px;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:bold;
+.product p{
+    color:#aaa;
+    font-size:11px;
+    line-height:1.7;
+    min-height:60px;
 }
 
-.beneficios{
+.price{
+    color:#e6b942;
+    font-size:18px;
+    font-weight:600;
+    margin:10px 0;
+}
+
+.product-actions{
+    display:flex;
+    gap:7px;
+}
+
+.product-actions button{
+    flex:1;
+    padding:10px 5px;
+    border-radius:7px;
+    border:1px solid #b88825;
+    background:linear-gradient(135deg,#e9bd4c,#a87416);
+    color:#080808;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.product-actions .whatsapp{
+    max-width:45px;
+    background:#080808;
+    color:#d9aa3d;
+}
+
+/* =========================
+   BENEFICIOS
+========================= */
+
+.benefits{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    border:1px solid #9b6b16;
-    border-radius:12px;
+    border:1px solid #78581b;
+    border-radius:14px;
     overflow:hidden;
+    margin-top:20px;
 }
 
-.beneficio{
+.benefit{
+    padding:25px;
     text-align:center;
-    padding:25px 10px;
-    border-right:1px solid #5d4317;
+    border-right:1px solid #493712;
 }
 
-.beneficio:last-child{
+.benefit:last-child{
     border-right:none;
 }
 
-.beneficio h3{
-    color:#e5b546;
-    margin-bottom:8px;
+.benefit-icon{
+    font-size:32px;
+    color:#d8aa3b;
 }
 
-.opiniones{
+.benefit h3{
+    color:#e0b34b;
+    font-family:'Cinzel',serif;
+    font-size:14px;
+    margin:10px 0 5px;
+}
+
+.benefit p{
+    color:#999;
+    font-size:11px;
+}
+
+/* =========================
+   TESTIMONIOS
+========================= */
+
+.testimonials{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:25px;
 }
 
-.opinion{
-    border:1px solid #5d4317;
-    padding:25px;
-    border-radius:10px;
+.testimonial{
+    border:1px solid #594316;
+    background:#090909;
+    border-radius:12px;
+    padding:30px;
     text-align:center;
-    color:#ddd;
 }
 
-.estrellas{
-    color:#e5b546;
-    font-size:22px;
+.stars{
+    color:#e4b63f;
+    letter-spacing:5px;
     margin-bottom:15px;
 }
+
+.testimonial p{
+    color:#bbb;
+    font-family:'Playfair Display',serif;
+    font-size:15px;
+}
+
+.testimonial strong{
+    display:block;
+    margin-top:18px;
+    color:#d7ad4c;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    border-top:1px solid #9b6b16;
-    padding:40px 5%;
-    background:#080808;
-    text-align:center;
+    border-top:1px solid #5c4418;
+    padding:50px 5% 20px;
+    background:#020202;
 }
 
-footer .logo{
+.footer-grid{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr 1.3fr;
+    gap:35px;
+}
+
+footer h3{
+    color:#dcae3d;
+    font-family:'Cinzel',serif;
     margin-bottom:15px;
+    font-size:15px;
 }
 
-footer p{
-    color:#bbb;
-    margin:8px;
+footer p,
+footer a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:12px;
+    line-height:2;
+}
+
+.footer-logo{
+    font-family:'Cinzel',serif;
+    color:#e2b449;
+    font-size:24px;
 }
 
 .instagram{
-    color:#e5b546;
-    font-size:18px;
+    color:#e4b54a!important;
+    font-size:15px!important;
 }
 
-.whatsapp{
+.newsletter{
+    display:flex;
+    margin-top:15px;
+}
+
+.newsletter input{
+    flex:1;
+    padding:12px;
+    background:#090909;
+    border:1px solid #664b18;
+    color:white;
+}
+
+.newsletter button{
+    padding:12px 18px;
+    border:0;
+    background:#d7a936;
+    cursor:pointer;
+}
+
+.copyright{
+    border-top:1px solid #29200e;
+    margin-top:40px;
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:10px;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-float{
     position:fixed;
-    right:20px;
-    bottom:20px;
-    width:60px;
-    height:60px;
-    background:#dca52e;
-    color:#000;
+    right:22px;
+    bottom:22px;
+    width:58px;
+    height:58px;
     border-radius:50%;
     display:flex;
-    align-items:center;
     justify-content:center;
-    text-decoration:none;
+    align-items:center;
+    background:#dcae3d;
+    color:#080808;
     font-size:28px;
-    font-weight:bold;
-    box-shadow:0 0 20px #9b6b16;
+    text-decoration:none;
+    z-index:2000;
+    box-shadow:0 0 25px rgba(220,174,61,.5);
 }
 
-@media(max-width:900px){
+/* =========================
+   RESPONSIVE
+========================= */
 
-    .top{
-        flex-direction:column;
-        gap:7px;
-        text-align:center;
+@media(max-width:1100px){
+
+    .categories{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    nav{
-        flex-direction:column;
-        gap:20px;
+    .products{
+        grid-template-columns:repeat(3,1fr);
     }
 
     .menu{
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:center;
+        display:none;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .topbar{
+        font-size:9px;
         gap:8px;
     }
 
-    .hero h1{
-        font-size:45px;
+    .topbar span:nth-child(3){
+        display:none;
     }
 
-    .hero h2{
-        font-size:38px;
+    nav{
+        height:70px;
     }
 
-    .categorias{
-        grid-template-columns:repeat(2,1fr);
+    .logo-moon{
+        font-size:40px;
     }
 
-    .productos{
-        grid-template-columns:repeat(2,1fr);
+    .logo-text strong{
+        font-size:15px;
     }
 
-    .beneficios{
-        grid-template-columns:repeat(2,1fr);
+    .logo-text em{
+        font-size:19px;
     }
 
-    .beneficio{
-        border-bottom:1px solid #5d4317;
-    }
-
-    .opiniones{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:500px){
-
-    .productos{
-        grid-template-columns:1fr;
+    .icons{
+        font-size:18px;
     }
 
     .hero{
-        min-height:350px;
+        min-height:560px;
+    }
+
+    .moon{
+        font-size:80px;
     }
 
     .hero h1{
-        font-size:36px;
+        font-size:38px;
+        letter-spacing:2px;
     }
 
     .hero h2{
-        font-size:32px;
+        font-size:44px;
+    }
+
+    .hero-sub{
+        font-size:11px;
+        letter-spacing:2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product img{
+        height:140px;
+    }
+
+    .benefits{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .benefit{
+        border-bottom:1px solid #493712;
+    }
+
+    .testimonials{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .copyright{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
     }
 
 }
@@ -339,201 +738,639 @@ footer p{
 
 <body>
 
-<header>
+<!-- BARRA SUPERIOR -->
 
-<div class="top">
-    <span>🚚 ENVÍOS A TODO EL PAÍS</span>
-    <span>💳 HASTA 6 CUOTAS SIN INTERÉS</span>
-    <span>🎧 ATENCIÓN PERSONALIZADA</span>
+<div class="topbar">
+
+<span>🚚 ENVÍOS A TODO EL PAÍS</span>
+
+<span>💳 HASTA 3 CUOTAS SIN INTERÉS</span>
+
+<span>🎧 ATENCIÓN PERSONALIZADA</span>
+
 </div>
+
+
+<!-- NAV -->
 
 <nav>
 
-<div class="logo">🌙 Electro Luna</div>
+<div class="logo">
+
+<div class="logo-moon">☾</div>
+
+<div class="logo-text">
+<strong>ELECTRO</strong>
+<em>Luna</em>
+</div>
+
+</div>
+
 
 <div class="menu">
-<a href="#">INICIO</a>
+
+<a href="#inicio">INICIO</a>
 <a href="#productos">PRODUCTOS</a>
 <a href="#categorias">CATEGORÍAS</a>
 <a href="#ofertas">OFERTAS</a>
 <a href="#contacto">CONTACTO</a>
+
+</div>
+
+
+<div class="icons">
+
+<span>⌕</span>
+<span>🛒</span>
+
 </div>
 
 </nav>
 
-</header>
 
+<!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="inicio">
 
-<div>
+<div class="decor one">🦋</div>
+<div class="decor two">🌸</div>
+<div class="decor three">🦋</div>
+<div class="decor four">🌸</div>
+
+<div class="hero-content">
+
+<div class="moon">☾</div>
 
 <h1>ELECTRO</h1>
 
 <h2>Luna</h2>
 
-<p>
+<div class="hero-sub">
 TECNOLOGÍA · HOGAR · ESTILO
-<br><br>
-Elegí calidad, elegí confianza,
-<br>
-<i>elegí Electro Luna.</i>
+</div>
+
+<p>
+Elegí calidad, elegí confianza,<br>
+<em>elegí Electro Luna.</em>
 </p>
 
-<a class="boton" href="#productos">🛒 VER PRODUCTOS</a>
+<div class="buttons">
 
-<a class="boton" href="https://wa.me/" target="_blank">
+<a href="#productos" class="btn btn-gold">
+🛒 VER PRODUCTOS
+</a>
+
+<a
+href="https://wa.me/5491133394510"
+target="_blank"
+class="btn btn-outline">
 💬 WHATSAPP
 </a>
 
 </div>
 
-</section>
-
-
-<section class="seccion" id="categorias">
-
-<h2 class="titulo">✦ CATEGORÍAS DESTACADAS ✦</h2>
-
-<div class="categorias">
-
-<div class="categoria">🏠<br>HOGAR</div>
-
-<div class="categoria">📱<br>TECNOLOGÍA</div>
-
-<div class="categoria">🧸<br>JUGUETES</div>
-
-<div class="categoria">🔧<br>HERRAMIENTAS</div>
-
-<div class="categoria">🍳<br>COCINA</div>
-
-<div class="categoria">🚲<br>MOVILIDAD</div>
-
 </div>
 
 </section>
 
 
-<section class="seccion" id="productos">
+<!-- CATEGORIAS -->
 
-<h2 class="titulo">✦ PRODUCTOS DESTACADOS ✦</h2>
+<section class="section" id="categorias">
 
-<div class="productos">
+<h2 class="section-title">
+CATEGORÍAS DESTACADAS
+</h2>
 
+<div class="categories">
 
-<div class="producto">
-
-<div class="foto">🍟</div>
-
-<h3>Freidora de Aire Star Trak 6.5L</h3>
-
-<div class="precio">$119.990</div>
-
-<div class="cuotas">Hasta 6 cuotas sin interés</div>
-
-<a class="comprar" href="#">COMPRAR</a>
-
+<div class="category">
+<div class="category-icon">🏠</div>
+<span>HOGAR</span>
 </div>
 
-
-<div class="producto">
-
-<div class="foto">☕</div>
-
-<h3>Cafetera Espresso Suono 20 Bar</h3>
-
-<div class="precio">$139.990</div>
-
-<div class="cuotas">Hasta 6 cuotas sin interés</div>
-
-<a class="comprar" href="#">COMPRAR</a>
-
+<div class="category">
+<div class="category-icon">📱</div>
+<span>TECNOLOGÍA</span>
 </div>
 
-
-<div class="producto">
-
-<div class="foto">📺</div>
-
-<h3>Microondas Yelmo HM-9020 20L</h3>
-
-<div class="precio">$99.990</div>
-
-<div class="cuotas">Hasta 6 cuotas sin interés</div>
-
-<a class="comprar" href="#">COMPRAR</a>
-
+<div class="category">
+<div class="category-icon">🧸</div>
+<span>JUGUETES</span>
 </div>
 
-
-<div class="producto">
-
-<div class="foto">🥤</div>
-
-<h3>Licuadora Yelmo Harry Potter 1.5L</h3>
-
-<div class="precio">$59.990</div>
-
-<div class="cuotas">Hasta 6 cuotas sin interés</div>
-
-<a class="comprar" href="#">COMPRAR</a>
-
+<div class="category">
+<div class="category-icon">🔧</div>
+<span>HERRAMIENTAS</span>
 </div>
 
-
-<div class="producto">
-
-<div class="foto">🧹</div>
-
-<h3>Aspiradora Vertical</h3>
-
-<div class="precio">$49.990</div>
-
-<div class="cuotas">Hasta 6 cuotas sin interés</div>
-
-<a class="comprar" href="#">COMPRAR</a>
-
+<div class="category">
+<div class="category-icon">🍳</div>
+<span>COCINA</span>
 </div>
 
+<div class="category">
+<div class="category-icon">🚲</div>
+<span>MOVILIDAD</span>
+</div>
 
 </div>
 
 </section>
 
 
-<section class="seccion" id="ofertas">
+<!-- PRODUCTOS -->
 
-<h2 class="titulo">✦ ¿POR QUÉ ELEGIR ELECTRO LUNA? ✦</h2>
+<section class="section" id="productos">
 
-<div class="beneficios">
+<h2 class="section-title">
+PRODUCTOS DESTACADOS
+</h2>
 
-<div class="beneficio">
+<div class="products">
 
-<h3>🚚 ENVÍOS</h3>
 
-<p>A todo el país</p>
+<!-- PRODUCTO 1 -->
+
+<div class="product">
+
+<img src="img/lavarropas-kanji.png"
+alt="Lavarropas Kanji Home">
+
+<h3>
+Lavarropas KANJI HOME
+</h3>
+
+<p>
+10 programas · 4 kg · 800 RPM
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Lavarropas KANJI HOME')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Lavarropas KANJI HOME')">
+💬
+</button>
 
 </div>
 
-<div class="beneficio">
+</div>
 
-<h3>💳 HASTA 6 CUOTAS</h3>
+
+<!-- PRODUCTO 2 -->
+
+<div class="product">
+
+<img src="img/galaxy-fit3.png"
+alt="Galaxy Fit3">
+
+<h3>
+Samsung Galaxy Fit3
+</h3>
+
+<p>
+Pantalla AMOLED · hasta 13 días de batería · más de 100 funciones deportivas.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Galaxy Fit3')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Galaxy Fit3')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 3 -->
+
+<div class="product">
+
+<img src="img/microondas-yelmo.png"
+alt="Microondas Yelmo">
+
+<h3>
+Microondas Yelmo HM-9020
+</h3>
+
+<p>
+20 litros · diseño moderno · práctico para tu cocina.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Microondas Yelmo HM-9020')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Microondas Yelmo HM-9020')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 4 -->
+
+<div class="product">
+
+<img src="img/tablet.png"
+alt="Tablet C Idea">
+
+<h3>
+Tablet C Idea CM10500 Ultra
+</h3>
+
+<p>
+Pantalla 10.1” · almacenamiento 128 GB · conectividad 5G LTE.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Tablet C Idea CM10500 Ultra')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Tablet C Idea CM10500 Ultra')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 5 -->
+
+<div class="product">
+
+<img src="img/cafetera.png"
+alt="Cafetera Espresso">
+
+<h3>
+Cafetera Espresso Suono
+</h3>
+
+<p>
+20 Bar · vaporizador de leche · diseño elegante.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Cafetera Espresso Suono')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Cafetera Espresso Suono')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 6 -->
+
+<div class="product">
+
+<img src="img/secarrropas-wanke.png"
+alt="Secarropas Wanke">
+
+<h3>
+Secarropas Wanke Comfort
+</h3>
+
+<p>
+Secado eficiente · diseño práctico · ideal para espacios reducidos.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Secarropas Wanke Comfort')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Secarropas Wanke Comfort')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 7 -->
+
+<div class="product">
+
+<img src="img/cerradura.png"
+alt="Cerradura inteligente">
+
+<h3>
+Cerradura Inteligente FX16
+</h3>
+
+<p>
+Huella digital · teclado táctil · tarjetas y llaves de emergencia.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Cerradura Inteligente FX16')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Cerradura Inteligente FX16')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 8 -->
+
+<div class="product">
+
+<img src="img/heladera-midea.png"
+alt="Heladera Midea">
+
+<h3>
+Heladera Midea 240 Litros
+</h3>
+
+<p>
+Diseño moderno y excelente capacidad para tu hogar.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Heladera Midea 240 Litros')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Heladera Midea 240 Litros')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 9 -->
+
+<div class="product">
+
+<img src="img/freezer-volk.png"
+alt="Freezer VOLK">
+
+<h3>
+Freezer VOLK 390L
+</h3>
+
+<p>
+Gran capacidad · ideal para hogar y comercio.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Freezer VOLK 390L')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Freezer VOLK 390L')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 10 -->
+
+<div class="product">
+
+<img src="img/fresadora-omaha.png"
+alt="Fresadora Omaha">
+
+<h3>
+Fresadora OMAHA Router
+</h3>
+
+<p>
+220V · 530W · 3500 RPM · guía paralela incluida.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Fresadora OMAHA Router')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Fresadora OMAHA Router')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 11 -->
+
+<div class="product">
+
+<img src="img/sierra-omaha.png"
+alt="Sierra ingletadora Omaha">
+
+<h3>
+Sierra Ingletadora OMAHA
+</h3>
+
+<p>
+1250W · 4500 RPM · disco 200 mm · cortes precisos.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Sierra Ingletadora OMAHA')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Sierra Ingletadora OMAHA')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCTO 12 -->
+
+<div class="product">
+
+<img src="img/combo-omaha.png"
+alt="Combo herramientas Omaha">
+
+<h3>
+Combo de Herramientas OMAHA
+</h3>
+
+<p>
+Taladro · pistola de calor · pistola para pintar · luces LED.
+</p>
+
+<div class="price">
+CONSULTAR
+</div>
+
+<div class="product-actions">
+
+<button onclick="consultar('Combo de Herramientas OMAHA')">
+VER MÁS
+</button>
+
+<button
+class="whatsapp"
+onclick="whatsapp('Combo de Herramientas OMAHA')">
+💬
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- BENEFICIOS -->
+
+<section class="section">
+
+<div class="benefits">
+
+<div class="benefit">
+
+<div class="benefit-icon">🚚</div>
+
+<h3>ENVÍOS A TODO EL PAÍS</h3>
+
+<p>Rápidos y seguros</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-icon">💳</div>
+
+<h3>HASTA 3 CUOTAS</h3>
 
 <p>Sin interés</p>
 
 </div>
 
-<div class="beneficio">
 
-<h3>🏆 CALIDAD</h3>
+<div class="benefit">
 
-<p>Productos seleccionados</p>
+<div class="benefit-icon">🏆</div>
+
+<h3>PRODUCTOS DE CALIDAD</h3>
+
+<p>Garantía y confianza</p>
 
 </div>
 
-<div class="beneficio">
 
-<h3>🎧 ATENCIÓN</h3>
+<div class="benefit">
+
+<div class="benefit-icon">🎧</div>
+
+<h3>ATENCIÓN PERSONALIZADA</h3>
 
 <p>Siempre para vos</p>
 
@@ -544,47 +1381,57 @@ Elegí calidad, elegí confianza,
 </section>
 
 
-<section class="seccion">
+<!-- TESTIMONIOS -->
 
-<h2 class="titulo">✦ LO QUE DICEN NUESTROS CLIENTES ✦</h2>
+<section class="section">
 
-<div class="opiniones">
+<h2 class="section-title">
+LO QUE DICEN NUESTROS CLIENTES
+</h2>
 
-<div class="opinion">
+<div class="testimonials">
 
-<div class="estrellas">★★★★★</div>
+<div class="testimonial">
 
-<p>“Excelente atención y productos de primera calidad.”</p>
+<div class="stars">
+★★★★★
+</div>
 
-<br>
+<p>
+“Excelente atención y productos de primera calidad.”
+</p>
 
-<strong>Mariana G.</strong>
+<strong>— Cliente Electro Luna</strong>
 
 </div>
 
 
-<div class="opinion">
+<div class="testimonial">
 
-<div class="estrellas">★★★★★</div>
+<div class="stars">
+★★★★★
+</div>
 
-<p>“Recibí mi pedido súper rápido. Muy recomendable.”</p>
+<p>
+“Recibí mi pedido súper rápido. Muy recomendable.”
+</p>
 
-<br>
-
-<strong>Lucas M.</strong>
+<strong>— Cliente Electro Luna</strong>
 
 </div>
 
 
-<div class="opinion">
+<div class="testimonial">
 
-<div class="estrellas">★★★★★</div>
+<div class="stars">
+★★★★★
+</div>
 
-<p>“Electro Luna es mi tienda de confianza.”</p>
+<p>
+“Electro Luna es mi tienda de confianza.”
+</p>
 
-<br>
-
-<strong>Silvina R.</strong>
+<strong>— Cliente Electro Luna</strong>
 
 </div>
 
@@ -593,31 +1440,162 @@ Elegí calidad, elegí confianza,
 </section>
 
 
+<!-- FOOTER -->
+
 <footer id="contacto">
 
-<div class="logo">🌙 Electro Luna</div>
+<div class="footer-grid">
 
-<p>TECNOLOGÍA · HOGAR · ESTILO</p>
 
-<p>Elegí calidad, elegí confianza.</p>
+<div>
 
-<br>
+<div class="footer-logo">
+☾ ELECTRO Luna
+</div>
 
-<p class="instagram">📸 Instagram: @electroluna.ok</p>
+<p>
+TECNOLOGÍA · HOGAR · ESTILO
+</p>
 
-<p>📧 electroluna.ok@gmail.com</p>
+<p>
+Elegí calidad, elegí confianza,<br>
+elegí Electro Luna.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>CONTACTO</h3>
+
+<p>📱 11 3339-4510</p>
+
+<p>📱 11 7240-9859</p>
+
+<p>✉️ electroluna10@mail.com</p>
 
 <p>📍 Buenos Aires, Argentina</p>
 
-<br>
+</div>
 
-<p>© 2026 Electro Luna · Todos los derechos reservados</p>
+
+<div>
+
+<h3>SEGUINOS</h3>
+
+<p class="instagram">
+📸 @electroluna.ok
+</p>
+
+<p>
+Facebook · Electro Luna
+</p>
+
+<p>
+TikTok · @electroluna.ok
+</p>
+
+</div>
+
+
+<div>
+
+<h3>NEWSLETTER</h3>
+
+<p>
+Suscribite y recibí nuestras ofertas,
+novedades y promociones.
+</p>
+
+<div class="newsletter">
+
+<input
+type="email"
+placeholder="Tu correo electrónico">
+
+<button>➤</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+<span>
+© 2026 ELECTRO LUNA · Todos los derechos reservados
+</span>
+
+<span>
+Términos y Condiciones · Política de Privacidad
+</span>
+
+</div>
 
 </footer>
 
 
-<a class="whatsapp" href="https://wa.me/" target="_blank">☏</a>
+<!-- WHATSAPP -->
 
+<a
+href="https://wa.me/5491133394510"
+target="_blank"
+class="whatsapp-float">
+💬
+</a>
+
+
+<script>
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function whatsapp(producto){
+
+    const numero = "5491133394510";
+
+    const mensaje =
+    "Hola Electro Luna 🌙✨ Quiero consultar por: "
+    + producto;
+
+    window.open(
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(mensaje),
+        "_blank"
+    );
+}
+
+
+/* =========================
+   CONSULTAR
+========================= */
+
+function consultar(producto){
+
+    const numero = "5491133394510";
+
+    const mensaje =
+    "Hola Electro Luna 🌙✨ Quiero información sobre "
+    + producto;
+
+    window.open(
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(mensaje),
+        "_blank"
+    );
+
+}
+
+</script>
 
 </body>
 </html>
